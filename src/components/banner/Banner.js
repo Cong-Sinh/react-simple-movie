@@ -9,13 +9,13 @@ const Banner = () => {
     fetcher
   );
 
-  const movies = data?.results || [];
-  console.log(movies);
+  const movie = data?.results || [];
+  console.log(movie);
   return (
     <section className="h-[600px] mb-10 overflow-hidden banner page-container">
       <Swiper grabCursor="true" slidesPerView={"auto"}>
-        {movies.length > 0 &&
-          movies.map((item) => (
+        {movie.length > 0 &&
+          movie.map((item) => (
             <SwiperSlide key={item.id}>
               <BannerItem item={item}></BannerItem>
             </SwiperSlide>

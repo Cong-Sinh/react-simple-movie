@@ -4,13 +4,13 @@ import useSWR from "swr";
 import MovieCard from "../movie/MovieCard";
 
 const MoviePage = () => {
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovies] = useState([]);
   const { data, error, isLoading } = useSWR(
     `https://api.themoviedb.org/3/movie/popular?api_key=95f2419536f533cdaa1dadf83c606027`,
     fetcher
   );
 
-  //   const movies = data?.results || [];
+  //   const movie = data?.results || [];
 
   useEffect(() => {
     if (data && data.results) setMovies(data.results);
@@ -43,8 +43,8 @@ const MoviePage = () => {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-10 page-container">
-        {movies.length > 0 &&
-          movies.map((item) => (
+        {movie.length > 0 &&
+          movie.map((item) => (
             <MovieCard key={item.id} item={item}></MovieCard>
           ))}
       </div>

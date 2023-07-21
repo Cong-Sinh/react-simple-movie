@@ -1,30 +1,20 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
 import "swiper/scss";
-import MovieList from "./components/movie/MovieList";
-import Banner from "./components/banner/Banner";
+import Main from "./components/layout/Main";
+import HomePage from "./components/pages/HomePage";
+import MoviePage from "./components/pages/MoviePage";
 
 function App() {
   return (
     <Fragment>
-      <header className="flex items-center justify-center p-10 mb-5 header gap-x-5">
-        <span className="text-primary">Home</span>
-        <span className="">Movies</span>
-      </header>
-      <Banner></Banner>
-      <section className="pb-20 movies-layout page-container ">
-        <h2 className="mb-10 text-3xl font-bold capitalize">Now Playing</h2>
-        <MovieList></MovieList>
-      </section>
-      <section className="mb-20 movies-layout page-container">
-        <h2 className="mb-10 text-3xl capitalize ">Top Rated</h2>
-        <MovieList type="top_rated"></MovieList>
-      </section>
-
-      <section className="mb-20 movies-layout page-container">
-        <h2 className="mb-10 text-3xl capitalize ">Trending</h2>
-        <MovieList type="popular"></MovieList>
-      </section>
+      <Routes>
+        <Route element={<Main></Main>}>
+          <Route path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="/movies" element={<MoviePage></MoviePage>}></Route>
+        </Route>
+      </Routes>
     </Fragment>
   );
 }

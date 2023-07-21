@@ -1,22 +1,22 @@
 import React from "react";
 
-const MovieCard = () => {
+const MovieCard = ({ item }) => {
+  const { title, vote_average, poster_path, release_date } = item;
   return (
-    <div>
-      <div className="p-3 rounded-lg Movies-card bg-slate-800 ">
-        <img
-          src="https://nld.mediacdn.vn/2019/4/25/3515432-endgamedek-15561710302491765206118.jpg"
-          alt=""
-          className="w-full h-[250px]  object-cover  rounded-lg mb-5"
-        />
-        <h3 className="mb-3 text-2xl font-bold text-white">
-          Spiderman: Homecoming
-        </h3>
+    <div className="flex flex-col h-full p-3 rounded-lg select-none Movies-card bg-slate-800">
+      <img
+        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+        alt=""
+        className="w-full h-[250px]  object-cover  rounded-lg mb-5"
+      />
+      <div className="flex flex-col flex-1">
+        <h3 className="mb-3 text-2xl font-bold text-white">{title}</h3>
         <div className="flex items-center justify-between mb-10 text-sm opacity-50">
-          <span>2017</span>
-          <span>2.4</span>
+          <span>{new Date(release_date).getFullYear()}</span>
+
+          <span>{vote_average}</span>
         </div>
-        <button className="w-full px-6 py-3 capitalize rounded-lg bg-primary">
+        <button className="w-full px-6 py-3 mt-auto capitalize rounded-lg bg-primary">
           Watch now
         </button>
       </div>

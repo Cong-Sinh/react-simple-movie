@@ -6,7 +6,7 @@ import useSWR from "swr";
 // https://api.themoviedb.org/3/search/movie?api_key=95f2419536f533cdaa1dadf83c606027
 const MovieList = ({ type = "now_playing" }) => {
   const [movie, setMovies] = useState([]);
-  const { data, error, isLoading } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${type}?api_key=95f2419536f533cdaa1dadf83c606027`,
     fetcher
   );

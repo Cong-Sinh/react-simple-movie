@@ -6,7 +6,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import MovieCard from "../movie/MovieCard";
 const MovieDetailPage = () => {
   const { movieId } = useParams();
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`,
     fetcher
   );
@@ -56,7 +56,7 @@ const MovieDetailPage = () => {
 
 function MovieCredits() {
   const { movieId } = useParams();
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`,
     fetcher
   );
@@ -85,7 +85,7 @@ function MovieCredits() {
 
 function MovieVideos() {
   const { movieId } = useParams();
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
     fetcher
   );
@@ -119,7 +119,7 @@ function MovieVideos() {
 
 function MovieSimilar() {
   const { movieId } = useParams();
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}`,
     fetcher
   );

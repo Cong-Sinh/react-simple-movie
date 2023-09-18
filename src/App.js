@@ -14,6 +14,8 @@ const MovieDetailPage = lazy(() =>
 // const MoviePage = lazy(() => import("./components/pages/MoviePage"));
 const MoviePageV2 = lazy(() => import("./components/pages/MoviePageV2"));
 
+const NotFoundPage = lazy(() => import("./components/pages/NotFoundPage"));
+
 function App() {
   return (
     <Fragment>
@@ -27,7 +29,7 @@ function App() {
               path="/movie/:movieId"
               element={<MovieDetailPage></MovieDetailPage>}
             ></Route>
-            <Route path="*" element={<>ahihi</>}></Route>
+            <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
           </Route>
         </Routes>
       </Suspense>
